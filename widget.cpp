@@ -33,6 +33,8 @@ Widget::Widget(QWidget *parent) :
     ui->radioButton->setText("Schema A");
     ui->radioButton_2->setText("Schema B");
 
+
+
     //connecting Hw 1 slider and spinbox
     connect(ui->horizontalSlider, SIGNAL(valueChanged(int)),ui->spinBox, SLOT(setValue(int)));
     connect(ui->spinBox, SIGNAL(valueChanged(int)),ui->horizontalSlider, SLOT(setValue(int)));
@@ -83,4 +85,14 @@ Widget::Widget(QWidget *parent) :
 Widget::~Widget()
 {
     delete ui;
+}
+
+//putting schema A into effect
+void Widget::on_radioButton_clicked()
+{
+    //attempting to add the total of all the homeworks
+    int total;
+    total = ((ui->spinBox->value) + (ui->spinBox_2->value) + (ui->spinBox_3->value) + (ui->spinBox_4->value) +
+            (ui->spinBox_4->value)+ (ui->spinBox_5->value)+ (ui->spinBox_6->value) + (ui->spinBox_7->value)
+            +(ui->spinBox_8->value));
 }
