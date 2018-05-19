@@ -17,6 +17,22 @@ Widget::Widget(QWidget *parent) :
     ui->label_7->setText("Hw 7");
     ui->label_8->setText("Hw 8");
 
+    //labeling exams
+    ui->label_9->setText("Midterm 1");
+    ui->label_10->setText("Midterm 2");
+    ui->label_11->setText("Final Exam");
+
+    //labeling courses available for calculation
+    ui->label_12->setText("Course: ");
+
+    //course options for calculation
+    ui->comboBox->addItem("Pic10B: Intermediate Programming");
+    ui->comboBox->addItem("Pic10C: Advanced Programming");
+
+    //labeling Radiobuttons with the two schemas
+    ui->radioButton->setText("Schema A");
+    ui->radioButton_2->setText("Schema B");
+
     //connecting Hw 1 slider and spinbox
     connect(ui->horizontalSlider, SIGNAL(valueChanged(int)),ui->spinBox, SLOT(setValue(int)));
     connect(ui->spinBox, SIGNAL(valueChanged(int)),ui->horizontalSlider, SLOT(setValue(int)));
@@ -48,6 +64,18 @@ Widget::Widget(QWidget *parent) :
     //connecting Hw 8 slider and spinbox
     connect(ui->horizontalSlider_8, SIGNAL(valueChanged(int)),ui->spinBox_8, SLOT(setValue(int)));
     connect(ui->spinBox_8, SIGNAL(valueChanged(int)),ui->horizontalSlider_8, SLOT(setValue(int)));
+
+    //connecting Midterm 1 slider and spinbox
+    connect(ui->horizontalSlider_9, SIGNAL(valueChanged(int)),ui->spinBox_9, SLOT(setValue(int)));
+    connect(ui->spinBox_9, SIGNAL(valueChanged(int)),ui->horizontalSlider_9, SLOT(setValue(int)));
+
+    //connecting Midterm 2 slider and spinbox
+    connect(ui->horizontalSlider_10, SIGNAL(valueChanged(int)),ui->spinBox_10, SLOT(setValue(int)));
+    connect(ui->spinBox_10, SIGNAL(valueChanged(int)),ui->horizontalSlider_10, SLOT(setValue(int)));
+
+    //connecting Final Exam slider and spinbox
+    connect(ui->horizontalSlider_11, SIGNAL(valueChanged(int)),ui->spinBox_11, SLOT(setValue(int)));
+    connect(ui->spinBox_11, SIGNAL(valueChanged(int)),ui->horizontalSlider_11, SLOT(setValue(int)));
 
 
 }
