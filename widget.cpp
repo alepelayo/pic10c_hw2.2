@@ -28,6 +28,9 @@ Widget::Widget(QWidget *parent) :
     //labeling courses available for calculation
     ui->label_12->setText("Course: ");
 
+    //labeling the overall score
+    ui->label_13->setText("Overall Score: ");
+
     //course options for calculation
     ui->comboBox->addItem("Pic10B: Intermediate Programming");
     ui->comboBox->addItem("Pic10C: Advanced Programming");
@@ -90,13 +93,41 @@ Widget::~Widget()
     delete ui;
 }
 
+
+
 //putting schema A into effect
-void Widget::on_radioButton_clicked()
+void Widget::on_radioButton_clicked(bool checked)
 {
     //attempting to add the total of all the homeworks
-    int total = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) + (ui->spinBox_4->value()) +
+    int total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) + (ui->spinBox_4->value()) +
             (ui->spinBox_4->value())+ (ui->spinBox_5->value())+ (ui->spinBox_6->value()) + (ui->spinBox_7->value())
             +(ui->spinBox_8->value()));
 
-    cout << total;
+
+    cout << total_1;
+}
+
+//putting schema B into effect
+void Widget::on_radioButton_2_clicked(bool checked)
+{
+    int total_2 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) + (ui->spinBox_4->value()) +
+            (ui->spinBox_4->value())+ (ui->spinBox_5->value())+ (ui->spinBox_6->value()) + (ui->spinBox_7->value())
+            +(ui->spinBox_8->value()));
+
+    cout << total_2;
+}
+
+void Widget::on_comboBox_activated(const QString &arg1)
+{
+    if(arg1 == "Pic10C:Advanced Programming") {
+        if(on_radioButton_2_clicked(true)) {
+            cout << "Schema B for Pic10C is on";
+        }
+        else {
+            break;
+        }
+    }
+    else {
+        break;
+    }
 }
