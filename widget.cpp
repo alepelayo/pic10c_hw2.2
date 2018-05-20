@@ -1,5 +1,8 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include <iostream>
+
+using namespace std;
 
 Widget::Widget(QWidget *parent) :
     QMainWindow(parent),
@@ -91,8 +94,9 @@ Widget::~Widget()
 void Widget::on_radioButton_clicked()
 {
     //attempting to add the total of all the homeworks
-    int total;
-    total = ((ui->spinBox->value) + (ui->spinBox_2->value) + (ui->spinBox_3->value) + (ui->spinBox_4->value) +
-            (ui->spinBox_4->value)+ (ui->spinBox_5->value)+ (ui->spinBox_6->value) + (ui->spinBox_7->value)
-            +(ui->spinBox_8->value));
+    int total = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) + (ui->spinBox_4->value()) +
+            (ui->spinBox_4->value())+ (ui->spinBox_5->value())+ (ui->spinBox_6->value()) + (ui->spinBox_7->value())
+            +(ui->spinBox_8->value()));
+
+    cout << total;
 }
