@@ -117,10 +117,11 @@ void Widget::on_radioButton_2_clicked(bool checked)
     cout << total_2;
 }
 
+//trying to have the class as the outer "loop"
 void Widget::on_comboBox_activated(const QString &arg1)
 {
-    if(arg1 == "Pic10C:Advanced Programming") {
-        if(on_radioButton_2_clicked(true)) {
+    if(arg1 == "Pic10C:Advanced Programming") { //if pic10c class is picked
+        if(on_radioButton_2_clicked(true)) { //if schema B is picked
             cout << "Schema B for Pic10C is on";
         }
         else {
