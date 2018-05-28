@@ -136,7 +136,7 @@ void Widget::on_SchemaA_clicked()
         total_1 *= (0.15);
 
         //calculating percentage midterm 1
-        double midterm_1 = (ui->spinBox_9->value())*(0.25);
+        double midterm = (ui->spinBox_9->value())*(0.25);
 
         //calculating percentage final exam
         double final = (ui->spinBox_10->value())*(0.3);
@@ -145,11 +145,9 @@ void Widget::on_SchemaA_clicked()
         double project = (ui->spinBox_11->value())*(0.35);
 
         double grade;
-        grade = total_1 + midterm_1 + final;
+        grade = total_1 + midterm + final + project;
         ui->label_14->setNum(grade);
     }
-
-
 }
 
 //putting schema B into effect
@@ -214,5 +212,10 @@ void Widget::on_comboBox_activated(const QString &arg1)
     if (arg1 == "Pic10C: Advanced Programming") {
         ui->label_10->setText("Final Exam");
         ui->label_11->setText("Final Project");
+    }
+
+    else if(arg1 == "Pic10B: Intermediate Programming") {
+        ui->label_10->setText("Midterm 2");
+        ui->label_11->setText("Final Exam");
     }
 }
