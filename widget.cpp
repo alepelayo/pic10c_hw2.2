@@ -109,20 +109,15 @@ void Widget::on_SchemaA_clicked()
 
         //calculating percentage for homeworks
         total_1 *= (0.25);
-        cout << total_1 << endl;
-
 
         //calculating percentage midterm 1
         double midterm_1 = (ui->spinBox_9->value())*(0.2);
-        cout << midterm_1 << endl;
 
         //calculating percentage midterm 2
         double midterm_2 = (ui->spinBox_10->value())*(0.2);
-        cout << midterm_2 << endl;
 
         //calculating percentage final
         double final = (ui->spinBox_11->value())*(0.35);
-        cout << final << endl;
 
         double grade;
         grade = total_1 + midterm_1 + midterm_2 + final;
@@ -131,7 +126,6 @@ void Widget::on_SchemaA_clicked()
 
     //if comboBox reads Pic10c:
     if(ui->comboBox->currentText() == "Pic10C: Advanced Programming") {
-        cout << "We are under pic10c now" << endl;
 
         //attempting to add the total of all the homeworks
         double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
@@ -140,19 +134,19 @@ void Widget::on_SchemaA_clicked()
 
         //calculating percentage for homeworks
         total_1 *= (0.15);
-        cout << total_1 << endl;
 
         //calculating percentage midterm 1
         double midterm_1 = (ui->spinBox_9->value())*(0.25);
-        cout << midterm_1 << endl;
 
         //calculating percentage final exam
         double final = (ui->spinBox_10->value())*(0.3);
-        cout << final << endl;
 
         //calculating percentage final exam
         double project = (ui->spinBox_11->value())*(0.35);
-        cout << project << endl;
+
+        double grade;
+        grade = total_1 + midterm_1 + final;
+        ui->label_14->setNum(grade);
     }
 
 
@@ -161,11 +155,57 @@ void Widget::on_SchemaA_clicked()
 //putting schema B into effect
 void Widget::on_SchemaB_clicked()
 {
-    double total_2 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
-                      (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
-                      (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
+    //if comboBox reads Pic10b:
+    if(ui->comboBox->currentText() == "Pic10B: Intermediate Programming") {
 
-    cout << total_2;
+        //attempting to add the total of all the homeworks
+        double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
+                          (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
+                          (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
+
+        //calculating percentage for homeworks
+        total_1 *= (0.25);
+
+        double midterm = 0;
+        //calculating if midterm 1 is higher
+        if(ui->spinBox_9->value() > ui->spinBox_10->value()) {
+            midterm = (ui->spinBox_9->value())*(0.3);
+        }
+
+        //calculating if midterm 2 is higher
+        else if(ui->spinBox_9->value() < ui->spinBox_10->value()) {
+            midterm = (ui->spinBox_10->value())*(0.3);
+        }
+
+        //calculating percentage final
+        double final = (ui->spinBox_11->value())*(0.44);
+
+        double grade;
+        grade = total_1 + midterm + final;
+        ui->label_14->setNum(grade);
+    }
+
+    //if comboBox reads Pic10c:
+    if(ui->comboBox->currentText() == "Pic10C: Advanced Programming") {
+
+        //attempting to add the total of all the homeworks
+        double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
+                          (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
+                          (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
+
+        //calculating percentage for homeworks
+        total_1 *= (0.15);
+
+        //calculating percentage final exam
+        double final = (ui->spinBox_10->value())*(0.5);
+
+        //calculating percentage final exam
+        double project = (ui->spinBox_11->value())*(0.35);
+
+        double grade;
+        grade = total_1 + project + final;
+        ui->label_14->setNum(grade);
+    }
 }
 
 //changing the labels for pic10c (from midterm 2 to final project)
