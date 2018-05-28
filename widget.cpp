@@ -1,6 +1,7 @@
 #include "widget.h"
 #include "ui_widget.h"
 #include <iostream>
+#include <QString>
 
 using namespace std;
 
@@ -31,16 +32,11 @@ Widget::Widget(QWidget *parent) :
 
     //labeling the overall score
     ui->label_13->setText("Overall Score: ");
+    ui->label_14->setText("0.0");
 
     //course options for calculation
     ui->comboBox->addItem("Pic10B: Intermediate Programming");
     ui->comboBox->addItem("Pic10C: Advanced Programming");
-
-
-//    if(ui->comboBox->currentText() == "Pic10C: Advanced Programming") {
-//        ui->label_10->setText("Final Exam");
-//        ui->label_11->setText("Final Project");
-//   }
 
     //labeling Radiobuttons with the two schemas
     ui->SchemaA->setText("Schema A");
@@ -105,7 +101,6 @@ void Widget::on_SchemaA_clicked()
 {
     //if comboBox reads Pic10b:
     if(ui->comboBox->currentText() == "Pic10B: Intermediate Programming") {
-        cout << "We are under pic10b now" << endl;
 
         //attempting to add the total of all the homeworks
         double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
@@ -115,6 +110,7 @@ void Widget::on_SchemaA_clicked()
         //calculating percentage for homeworks
         total_1 *= (0.25);
         cout << total_1 << endl;
+
 
         //calculating percentage midterm 1
         double midterm_1 = (ui->spinBox_9->value())*(0.2);
@@ -127,6 +123,10 @@ void Widget::on_SchemaA_clicked()
         //calculating percentage final
         double final = (ui->spinBox_11->value())*(0.35);
         cout << final << endl;
+
+        double grade;
+        grade = total_1 + midterm_1 + midterm_2 + final;
+        ui->label_14->setNum(grade);
     }
 
     //if comboBox reads Pic10c:
@@ -138,19 +138,21 @@ void Widget::on_SchemaA_clicked()
                           (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
                           (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
 
-        cout << total_1 << endl;
-
         //calculating percentage for homeworks
         total_1 *= (0.15);
         cout << total_1 << endl;
 
         //calculating percentage midterm 1
-        double midterm_1 = (ui->spinBox_9->value())*(0.2);
+        double midterm_1 = (ui->spinBox_9->value())*(0.25);
         cout << midterm_1 << endl;
 
-        //calculating percentage final
-        double final = (ui->spinBox_11->value())*(0.3);
+        //calculating percentage final exam
+        double final = (ui->spinBox_10->value())*(0.3);
         cout << final << endl;
+
+        //calculating percentage final exam
+        double project = (ui->spinBox_11->value())*(0.35);
+        cout << project << endl;
     }
 
 

@@ -20,8 +20,6 @@ private slots:
 
     void on_SchemaB_clicked();
 
-    //void on_comboBox_activated(const QString &arg1);
-
     void on_comboBox_activated(const QString &arg1);
 
 private:
