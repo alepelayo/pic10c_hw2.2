@@ -21,9 +21,10 @@ Widget::Widget(QWidget *parent) :
     ui->label_8->setText("Hw 8");
 
     //labeling exams
-    ui->label_9->setText("Midterm 1");
-    ui->label_10->setText("Midterm 2");
-    ui->label_11->setText("Final Exam");
+     ui->label_9->setText("Midterm 1");
+     ui->label_10->setText("Midterm 2");
+     ui->label_11->setText("Final Exam");
+
 
     //labeling courses available for calculation
     ui->label_12->setText("Course: ");
@@ -35,11 +36,15 @@ Widget::Widget(QWidget *parent) :
     ui->comboBox->addItem("Pic10B: Intermediate Programming");
     ui->comboBox->addItem("Pic10C: Advanced Programming");
 
+
+//    if(ui->comboBox->currentText() == "Pic10C: Advanced Programming") {
+//        ui->label_10->setText("Final Exam");
+//        ui->label_11->setText("Final Project");
+//   }
+
     //labeling Radiobuttons with the two schemas
-    ui->radioButton->setText("Schema A");
-    ui->radioButton_2->setText("Schema B");
-
-
+    ui->SchemaA->setText("Schema A");
+    ui->SchemaB->setText("Schema B");
 
     //connecting Hw 1 slider and spinbox
     connect(ui->horizontalSlider, SIGNAL(valueChanged(int)),ui->spinBox, SLOT(setValue(int)));
@@ -96,39 +101,76 @@ Widget::~Widget()
 
 
 //putting schema A into effect
-void Widget::on_radioButton_clicked(bool checked)
+void Widget::on_SchemaA_clicked()
 {
-    //attempting to add the total of all the homeworks
-    int total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) + (ui->spinBox_4->value()) +
-            (ui->spinBox_4->value())+ (ui->spinBox_5->value())+ (ui->spinBox_6->value()) + (ui->spinBox_7->value())
-            +(ui->spinBox_8->value()));
+    //if comboBox reads Pic10b:
+    if(ui->comboBox->currentText() == "Pic10B: Intermediate Programming") {
+        cout << "We are under pic10b now" << endl;
+
+        //attempting to add the total of all the homeworks
+        double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
+                          (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
+                          (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
+
+        //calculating percentage for homeworks
+        total_1 *= (0.25);
+        cout << total_1 << endl;
+
+        //calculating percentage midterm 1
+        double midterm_1 = (ui->spinBox_9->value())*(0.2);
+        cout << midterm_1 << endl;
+
+        //calculating percentage midterm 2
+        double midterm_2 = (ui->spinBox_10->value())*(0.2);
+        cout << midterm_2 << endl;
+
+        //calculating percentage final
+        double final = (ui->spinBox_11->value())*(0.35);
+        cout << final << endl;
+    }
+
+    //if comboBox reads Pic10c:
+    if(ui->comboBox->currentText() == "Pic10C: Advanced Programming") {
+        cout << "We are under pic10c now" << endl;
+
+        //attempting to add the total of all the homeworks
+        double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
+                          (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
+                          (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
+
+        cout << total_1 << endl;
+
+        //calculating percentage for homeworks
+        total_1 *= (0.15);
+        cout << total_1 << endl;
+
+        //calculating percentage midterm 1
+        double midterm_1 = (ui->spinBox_9->value())*(0.2);
+        cout << midterm_1 << endl;
+
+        //calculating percentage final
+        double final = (ui->spinBox_11->value())*(0.3);
+        cout << final << endl;
+    }
 
 
-    cout << total_1;
 }
 
 //putting schema B into effect
-void Widget::on_radioButton_2_clicked(bool checked)
+void Widget::on_SchemaB_clicked()
 {
-    int total_2 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) + (ui->spinBox_4->value()) +
-            (ui->spinBox_4->value())+ (ui->spinBox_5->value())+ (ui->spinBox_6->value()) + (ui->spinBox_7->value())
-            +(ui->spinBox_8->value()));
+    double total_2 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
+                      (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
+                      (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
 
     cout << total_2;
 }
 
-//trying to have the class as the outer "loop"
+//changing the labels for pic10c (from midterm 2 to final project)
 void Widget::on_comboBox_activated(const QString &arg1)
 {
-    if(arg1 == "Pic10C:Advanced Programming") { //if pic10c class is picked
-        if(on_radioButton_2_clicked(true)) { //if schema B is picked
-            cout << "Schema B for Pic10C is on";
-        }
-        else {
-            break;
-        }
-    }
-    else {
-        break;
+    if (arg1 == "Pic10C: Advanced Programming") {
+        ui->label_10->setText("Final Exam");
+        ui->label_11->setText("Final Project");
     }
 }
