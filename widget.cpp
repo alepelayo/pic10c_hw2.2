@@ -4,7 +4,7 @@
 #include <QString>
 #include <QCoreApplication>
 #include <QList>
-#include <QSetIterator>
+#include <vector>
 
 
 using namespace std;
@@ -142,27 +142,28 @@ void Widget::on_SchemaA_clicked()
 
 		//attempting to drop the lowest homework
 		//attempting to create a vector with all the spinBox values (aka the homeworks)
-		QList<size_t> v;
-		v.insert(0, ui->spinBox->value());
-		v.insert(1, ui->spinBox_2->value());
-		v.insert(2, ui->spinBox_3->value());
-		v.insert(3, ui->spinBox_4->value());
-		v.insert(4, ui->spinBox_5->value());
-		v.insert(5, ui->spinBox_6->value());
-		v.insert(6, ui->spinBox_7->value());
-		v.insert(7, ui->spinBox_8->value());
+        vector<size_t> v;
+        v.push_back(ui->spinBox->value());
+        v.push_back(ui->spinBox_2->value());
+        v.push_back(ui->spinBox_3->value());
+        v.push_back(ui->spinBox_4->value());
+        v.push_back(ui->spinBox_5->value());
+        v.push_back(ui->spinBox_6->value());
+        v.push_back(ui->spinBox_7->value());
+        v.push_back(ui->spinBox_8->value());
 
 		//comparing the right and left to see which is lower
+        size_t temp = 0;
 		for (int i = 0; i < v.size() - 1; ++i) {
 			// cout << v[i]<< endl;
-			if (v[i] > v[i + 1]) {
-				cout << v[i] << endl;
+            if (v[i] < v[i + 1]) {
+                cout << v[i] << endl;
 			}
-			else if (v[i] < v[i + 1]) {
-				cout << v[i + 1] << endl;
-			}
-		}
+//			else if (v[i] < v[i + 1]) {
+//				cout << v[i + 1] << endl;
+//			}
 
+		}
 		//-------------------------------------------------------------------------------------------------------
 		//calculating percentage for homeworks
 		total_1 *= (0.25);
