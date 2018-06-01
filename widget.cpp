@@ -2,6 +2,10 @@
 #include "ui_widget.h"
 #include <iostream>
 #include <QString>
+#include <QVector>
+#include <QCoreApplication>
+#include <QList>
+
 
 using namespace std;
 
@@ -41,6 +45,31 @@ Widget::Widget(QWidget *parent) :
     //labeling Radiobuttons with the two schemas
     ui->SchemaA->setText("Schema A");
     ui->SchemaB->setText("Schema B");
+
+    //setting a range for homeworks 1-8??
+    ui->spinBox->setRange(0,20);
+    ui->horizontalSlider->setRange(0, 20);
+
+    ui->spinBox_2->setRange(0,20);
+    ui->horizontalSlider_2->setRange(0, 20);
+
+    ui->spinBox_3->setRange(0,20);
+    ui->horizontalSlider_3->setRange(0, 20);
+
+    ui->spinBox_4->setRange(0,20);
+    ui->horizontalSlider_4->setRange(0, 20);
+
+    ui->spinBox_5->setRange(0,20);
+    ui->horizontalSlider_5->setRange(0, 20);
+
+    ui->spinBox_6->setRange(0,20);
+    ui->horizontalSlider_6->setRange(0, 20);
+
+    ui->spinBox_7->setRange(0,20);
+    ui->horizontalSlider_7->setRange(0, 20);
+
+    ui->spinBox_8->setRange(0,20);
+    ui->horizontalSlider_8->setRange(0, 20);
 
     //connecting Hw 1 slider and spinbox
     connect(ui->horizontalSlider, SIGNAL(valueChanged(int)),ui->spinBox, SLOT(setValue(int)));
@@ -85,6 +114,7 @@ Widget::Widget(QWidget *parent) :
     //connecting Final Exam slider and spinbox
     connect(ui->horizontalSlider_11, SIGNAL(valueChanged(int)),ui->spinBox_11, SLOT(setValue(int)));
     connect(ui->spinBox_11, SIGNAL(valueChanged(int)),ui->horizontalSlider_11, SLOT(setValue(int)));
+
 
 
 }
