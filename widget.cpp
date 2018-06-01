@@ -153,7 +153,6 @@ void Widget::on_SchemaA_clicked()
         v.push_back(ui->spinBox_8->value());
 
 		//comparing the right and left to see which is lower
-        size_t temp = 0;
 		for (int i = 0; i < v.size() - 1; ++i) {
 			// cout << v[i]<< endl;
             if (v[i] < v[i + 1]) {
