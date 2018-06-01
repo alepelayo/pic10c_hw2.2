@@ -137,6 +137,27 @@ void Widget::on_SchemaA_clicked()
                           (ui->spinBox_4->value()) + (ui->spinBox_5->value())+ (ui->spinBox_6->value()) +
                           (ui->spinBox_7->value()) + (ui->spinBox_8->value()));
 
+		//-------------------------------------------------------------------------------------------------------
+
+		//attempting to drop the lowest homework
+		//attempting to create a vector with all the spinBox values (aka the homeworks)
+		QSet<size_t> v;
+		v.insert(ui->spinBox->value());
+		v.insert(ui->spinBox_2->value());
+		v.insert(ui->spinBox_3->value());
+		v.insert(ui->spinBox_4->value());
+		v.insert(ui->spinBox_5->value());
+		v.insert(ui->spinBox_6->value());
+		v.insert(ui->spinBox_7->value());
+		v.insert(ui->spinBox_8->value());
+
+		for (QSet<size_t>::iterator it = v.begin(); it != v.end(); ++it) {
+			cout << *it << endl;
+		}
+
+		//-------------------------------------------------------------------------------------------------------
+
+
         //calculating percentage for homeworks
         total_1 *= (0.25);
 
