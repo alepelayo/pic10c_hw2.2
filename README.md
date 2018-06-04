@@ -18,7 +18,7 @@ All students are assigned 8 homeworks but only the highest 7 are graded.
 ### Schema B:
 
 |Homeworks (1-8) | Highest Midterm | Final Exam | 
-| ---|---| ---| ---|
+| ---|---| ---|
 |25% |30%| 44%|
 
 
@@ -34,7 +34,7 @@ All students are assigned 8 homeworks but only the highest 7 are graded.
 ### Schema B:
 
 |Assignments | Final Exam | Final Project | 
-| ---|---| ---| ---|
+| ---|---| ---|
 |15% |50%| 35%|
 
 
