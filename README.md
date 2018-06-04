@@ -17,22 +17,27 @@ All students are assigned 8 homeworks but only the highest 7 are graded.
 
 ### Schema B:
 
-|Homeworks (1-8) | ---| 25% |
-|Highest Midterm | ---| 30%|
-|Final Exam | ---| 44%|
+|Homeworks (1-8) | Highest Midterm | Final Exam | 
+| ---|---| ---| ---|
+|25% |30%| 44%|
 
 
 ## Pic 10C: Advanced Progamming
 
 ### Schema A:
 
-|Assignments | ---| 15% |
-|Midterm | ---| 25% |
-|Final Exam| ---| 30%|
-|Final Project | ---| 35%|
+|Assignments | Midterm |Final Exam | Final Project | 
+| ---|---| ---| ---|
+|15% |25% | 30%| 35%|
+
 
 ### Schema B:
 
-|Assignments | ---| 15% |
-|Final Exam | ---| 50%|
-|Final Project | ---| 35%|
+|Assignments | Final Exam | Final Project | 
+| ---|---| ---| ---|
+|15% |50%| 35%|
+
+
+Original assignment description:
+
+- http://pic.ucla.edu/~rsalazar/pic10c/assignments/hw2/index.html
