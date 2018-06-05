@@ -24,6 +24,8 @@ All students are assigned 8 homeworks but only the highest 7 are graded.
 
 ## Pic 10C: Advanced Progamming
 
+All 3 assignments are being accounted for when calculating final grades. 
+
 ### Schema A:
 
 |Assignments | Midterm |Final Exam | Final Project | 
