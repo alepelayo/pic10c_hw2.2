@@ -116,8 +116,6 @@ Widget::Widget(QWidget *parent) :
 	connect(ui->spinBox_11, SIGNAL(valueChanged(int)), ui->horizontalSlider_11, SLOT(setValue(int)));
 
 
-
-
 }
 
 Widget::~Widget()
@@ -130,40 +128,34 @@ Widget::~Widget()
 //putting schema A into effect
 void Widget::on_SchemaA_clicked()
 {
+    //creating a vector where all the homeworks/assignments will be stored
+    vector<size_t> v;
+    v.push_back(ui->spinBox->value());
+    v.push_back(ui->spinBox_2->value());
+    v.push_back(ui->spinBox_3->value());
+    v.push_back(ui->spinBox_4->value());
+    v.push_back(ui->spinBox_5->value());
+    v.push_back(ui->spinBox_6->value());
+    v.push_back(ui->spinBox_7->value());
+    v.push_back(ui->spinBox_8->value());
+
+    //sorts the homework values in increasing order
+    sort(v.begin(), v.end());
+
+    //deleting the lowest homework for the vector
+    v.erase(v.begin());
+
+    //adding all the remaining homeworks
+    double total_1 = 0;
+    for (int i = 0; i < v.size(); ++i) {
+         total_1 += v[i];
+
+    }
+
 	//if comboBox reads Pic10b:
 	if (ui->comboBox->currentText() == "Pic10B: Intermediate Programming") {
 
-		//attempting to add the total of all the homeworks
-		double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
-			(ui->spinBox_4->value()) + (ui->spinBox_5->value()) + (ui->spinBox_6->value()) +
-			(ui->spinBox_7->value()) + (ui->spinBox_8->value()));
 
-		//-------------------------------------------------------------------------------------------------------
-
-		//attempting to drop the lowest homework
-		//attempting to create a vector with all the spinBox values (aka the homeworks)
-        vector<size_t> v;
-        v.push_back(ui->spinBox->value());
-        v.push_back(ui->spinBox_2->value());
-        v.push_back(ui->spinBox_3->value());
-        v.push_back(ui->spinBox_4->value());
-        v.push_back(ui->spinBox_5->value());
-        v.push_back(ui->spinBox_6->value());
-        v.push_back(ui->spinBox_7->value());
-        v.push_back(ui->spinBox_8->value());
-
-		//comparing the right and left to see which is lower
-		for (int i = 0; i < v.size() - 1; ++i) {
-			// cout << v[i]<< endl;
-            if (v[i] < v[i + 1]) {
-                cout << v[i] << endl;
-			}
-//			else if (v[i] < v[i + 1]) {
-//				cout << v[i + 1] << endl;
-//			}
-
-		}
-		//-------------------------------------------------------------------------------------------------------
 		//calculating percentage for homeworks
 		total_1 *= (0.25);
 
@@ -183,11 +175,6 @@ void Widget::on_SchemaA_clicked()
 
 	//if comboBox reads Pic10c:
 	if (ui->comboBox->currentText() == "Pic10C: Advanced Programming") {
-
-		//attempting to add the total of all the homeworks
-		double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
-			(ui->spinBox_4->value()) + (ui->spinBox_5->value()) + (ui->spinBox_6->value()) +
-			(ui->spinBox_7->value()) + (ui->spinBox_8->value()));
 
 		//calculating percentage for homeworks
 		total_1 *= (0.15);
@@ -210,13 +197,31 @@ void Widget::on_SchemaA_clicked()
 //putting schema B into effect
 void Widget::on_SchemaB_clicked()
 {
+    //creating a vector where all the homeworks/assignments will be stored
+    vector<size_t> v;
+    v.push_back(ui->spinBox->value());
+    v.push_back(ui->spinBox_2->value());
+    v.push_back(ui->spinBox_3->value());
+    v.push_back(ui->spinBox_4->value());
+    v.push_back(ui->spinBox_5->value());
+    v.push_back(ui->spinBox_6->value());
+    v.push_back(ui->spinBox_7->value());
+    v.push_back(ui->spinBox_8->value());
+
+    //sorts the homework values in increasing order
+    sort(v.begin(), v.end());
+
+    //deleting the lowest homework for the vector
+    v.erase(v.begin());
+
+    //adding all the remaining homeworks
+    double total_1 = 0;
+    for (int i = 0; i < v.size(); ++i) {
+         total_1 += v[i];
+
+    }
 	//if comboBox reads Pic10b:
 	if (ui->comboBox->currentText() == "Pic10B: Intermediate Programming") {
-
-		//attempting to add the total of all the homeworks
-		double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
-			(ui->spinBox_4->value()) + (ui->spinBox_5->value()) + (ui->spinBox_6->value()) +
-			(ui->spinBox_7->value()) + (ui->spinBox_8->value()));
 
 		//calculating percentage for homeworks
 		total_1 *= (0.25);
@@ -242,11 +247,6 @@ void Widget::on_SchemaB_clicked()
 
 	//if comboBox reads Pic10c:
 	if (ui->comboBox->currentText() == "Pic10C: Advanced Programming") {
-
-		//attempting to add the total of all the homeworks
-		double total_1 = ((ui->spinBox->value()) + (ui->spinBox_2->value()) + (ui->spinBox_3->value()) +
-			(ui->spinBox_4->value()) + (ui->spinBox_5->value()) + (ui->spinBox_6->value()) +
-			(ui->spinBox_7->value()) + (ui->spinBox_8->value()));
 
 		//calculating percentage for homeworks
 		total_1 *= (0.15);
